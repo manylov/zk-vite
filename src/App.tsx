@@ -11,7 +11,7 @@ interface ServerResponse {
   tx: string;
 }
 
-const backendUrl = "https://zkauth.lookonly.ru"; //import.meta.env.BACKEND_URL;
+const backendUrl = "https://backend.zk-auth.com"; //import.meta.env.BACKEND_URL;
 
 console.log({ backendUrl });
 const underlying = "0x4E9450B3Bc25Ab02447594903f5e3fFD01893D12"; // import.meta.env.UNDERLYING;
