@@ -14,9 +14,11 @@ const backendUrl = "https://server-production-e9cb8.up.railway.app/"; //import.m
 
 console.log({ backendUrl });
 const underlying = "0x4E9450B3Bc25Ab02447594903f5e3fFD01893D12"; // import.meta.env.UNDERLYING;
+const mainContract = "0xC9068cCE3bAc43984cd0c329D0e8EF96D893B25e";
 
 const etherscan = "https://goerli.etherscan.io/tx/";
 const tokenEtherscan = "https://goerli.etherscan.io/token/" + underlying;
+const contractEtherscan = "https://goerli.etherscan.io/address/" + mainContract;
 
 function App() {
   const [login, setLogin] = useState<string>("");
@@ -223,6 +225,15 @@ function App() {
               className="text-indigo-600 hover:text-indigo-500"
             >
               Open token in etherscan
+            </a>
+            <br />
+            <a
+              href={contractEtherscan}
+              target="_blank"
+              rel="noreferrer"
+              className="text-indigo-600 hover:text-indigo-500"
+            >
+              Open main contract in etherscan
             </a>
           </p>
           <p className="mt-10 text-center tracking-tight text-gray-900">
