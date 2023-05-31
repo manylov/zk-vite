@@ -228,6 +228,19 @@ function App() {
         </div>
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <p className="mt-10 text-center tracking-tight text-gray-900">
+            <div>
+              <span>Zk-auth demo app functions:</span>
+              <ul className="list-none">
+                <li>- register on-chain by your id and password</li>
+                <li>- create proof of know-your-password on the client side</li>
+                <li>- submit proof on-chain </li>
+                <li>
+                  - smart contract will transfer ZKT tokens to the receiver
+                  address if the proof is valid visit zk-auth.com for more info
+                  <br /> <br />
+                </li>
+              </ul>
+            </div>
             <div>Underlying ERC20 token: ZKT</div>
             <a
               href={tokenEtherscan}
