@@ -226,18 +226,30 @@ function App() {
             ZKAuth demo
           </h2>
         </div>
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="">
           <p className="mt-10 text-center tracking-tight text-gray-900">
             <div>
               <span>Zk-auth demo app functions:</span>
-              <ul className="list-none">
+              <ul className="list-none place-content-start">
                 <li>- register on-chain by your id and password</li>
                 <li>- create proof of know-your-password on the client side</li>
                 <li>- submit proof on-chain </li>
                 <li>
                   - smart contract will transfer ZKT tokens to the receiver
-                  address if the proof is valid visit zk-auth.com for more info
-                  <br /> <br />
+                  address if the proof is valid
+                  <br />
+                  <br />
+                  Visit{" "}
+                  <a
+                    href="https://zk-auth.com"
+                    target="_blank"
+                    className="text-indigo-600 hover:text-indigo-500"
+                  >
+                    zk-auth.com{" "}
+                  </a>
+                  <span className="py-5">for more info</span>
+                  <br />
+                  <br />
                 </li>
               </ul>
             </div>
