@@ -171,9 +171,15 @@ function App() {
     asyncHandleTransfer();
   };
 
-  const handleAddToken = () => {
+  const metamaskActions = async () => {
     // @ts-ignore
     if (window.ethereum) {
+      // @ts-ignore
+      await window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0x5" }], // Goerli chainId: '0x5'
+      });
+
       const tokenAddress = underlying; // Replace with the actual token address
       const tokenSymbol = "ZKT"; // Replace with the actual token symbol
       const tokenDecimals = 18; // Replace with the actual token decimals
@@ -200,6 +206,10 @@ function App() {
     } else {
       console.error("MetaMask not detected.");
     }
+  };
+
+  const handleAddToken = () => {
+    metamaskActions();
   };
 
   return (
