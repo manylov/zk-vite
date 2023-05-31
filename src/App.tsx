@@ -216,18 +216,13 @@ function App() {
   return (
     <>
       <div className="flex flex-col justify-start">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Your Company"
-          />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+        <div>
+          <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             ZKAuth demo
           </h2>
         </div>
-        <div className="">
-          <p className="mt-10 text-center tracking-tight text-gray-900">
+        <div className="text-center">
+          <p className="mt-1 text-gray-900">
             <div>
               <span>Zk-auth demo app functions:</span>
               <ul className="list-none place-content-start">
@@ -247,7 +242,7 @@ function App() {
                   >
                     zk-auth.com{" "}
                   </a>
-                  <span className="py-5">for more info</span>
+                  <span>for more info</span>
                   <br />
                   <br />
                 </li>
