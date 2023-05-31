@@ -10,7 +10,7 @@ interface ServerResponse {
   tx: string;
 }
 
-const backendUrl = "https://server-production-e9cb8.up.railway.app/"; //import.meta.env.BACKEND_URL;
+const backendUrl = "https://server-production-e9cb8.up.railway.app"; //import.meta.env.BACKEND_URL;
 
 console.log({ backendUrl });
 const underlying = "0x4E9450B3Bc25Ab02447594903f5e3fFD01893D12"; // import.meta.env.UNDERLYING;
