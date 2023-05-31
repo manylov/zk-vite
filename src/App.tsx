@@ -1,16 +1,17 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import { BigNumberish } from "ethers";
 
 import "./App.css";
 import axios from "axios";
 
-const hashData = (data: number) => data + 1;
+const hashData = (data: bigint) => data + 1n;
 
 interface ServerResponse {
   error?: string;
   tx: string;
 }
 
-const backendUrl = "https://server-production-e9cb8.up.railway.app"; //import.meta.env.BACKEND_URL;
+const backendUrl = "https://zkauth.lookonly.ru"; //import.meta.env.BACKEND_URL;
 
 console.log({ backendUrl });
 const underlying = "0x4E9450B3Bc25Ab02447594903f5e3fFD01893D12"; // import.meta.env.UNDERLYING;
@@ -48,7 +49,7 @@ function App() {
     for (let i = 0; i < str.length; i++) {
       decimal += str.charCodeAt(i);
     }
-    return Number(decimal);
+    return BigInt(decimal);
   };
 
   const clearToasts = () => {
@@ -80,7 +81,7 @@ function App() {
       return;
     }
 
-    const hashedPassword = hashData(Number(decimalPassword));
+    const hashedPassword = hashData(decimalPassword);
 
     setSuccess("Registering... Please wait.");
     setError("");
@@ -88,7 +89,7 @@ function App() {
     axios
       .post<ServerResponse>(backendUrl + "/register", {
         login,
-        hashedPassword,
+        hashedPassword: hashedPassword.toString(),
       })
       .then((response) => {
         if (response.status === 200) {
@@ -124,13 +125,13 @@ function App() {
 
     // here plus 1 is hash function
     const passwordHash = hashData(numPassword);
-    const passwordPlusOneHash = hashData(numPassword + 1);
+    const passwordPlusOneHash = hashData(numPassword + 1n);
 
     const { proof, publicSignals } = await snarkjs.groth16.fullProve(
       {
-        password: numPassword,
-        passwordHash: passwordHash,
-        passwordPlusOneHash: passwordPlusOneHash,
+        password: numPassword.toString(),
+        passwordHash: passwordHash.toString(),
+        passwordPlusOneHash: passwordPlusOneHash.toString(),
       },
       "zkauth.wasm",
       "zkauth.zkey"
